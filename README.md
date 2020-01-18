@@ -40,6 +40,13 @@ In your Hugo site `themes` directory, run:
 git clone https://github.com/vimux/mainroad
 ```
 
+Or, if you don't plan to make any significant changes, but want to track and update the theme, you can add it as a git
+submodule via the following command:
+
+```
+git submodule add https://github.com/vimux/mainroad
+```
+
 Next, open `config.toml` in the base of the Hugo site and ensure the theme option is set to `mainroad`:
 
 ```
@@ -108,6 +115,16 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
   gitlab = "username"
   bitbucket = "username"
   email = "example@example.com"
+
+# Custom social links
+[[Params.widgets.social.custom]]
+  title = "Youtube"
+  url = "https://youtube.com/user/username"
+  icon = "youtube.svg" # Optional. Path relative to "layouts/partials"
+
+[[Params.widgets.social.custom]]
+  title = "My Home Page"
+  url = "http://example.com"
 ```
 
 A good idea is not to copy all these settings without understanding how it works. Use only those parameters that you
@@ -180,6 +197,32 @@ menu: ["main", "side", "footer"] # Add page to a main, side, and footer menu
 `side` menu.
 
 **Note:** Please keep in mind that Mainroad menus don't support nested items i.e. submenus.
+
+### Social Widget: custom links
+
+**Mainroad** contains built-in social links in the social widget. In addition, you can also set custom social links by
+adding `Params.widgets.social.custom` to your `config.toml`. Here is an example.
+
+```toml
+[[Params.widgets.social.custom]]
+  title = "Youtube"
+  url = "https://youtube.com/user/username"
+  icon = "youtube.svg"
+```
+
+**Note:** You need to put your icon file in `layouts/partials` directory under your project's root if you want to
+display an icon of your social link. The `icon` filed, which is optional, should be a path relative to
+`layouts/partials`.
+
+**Note:** *Only* SVG files are supported to be used as custom social icons in the current version. If you use any files
+of another format, PNG for example, a compile error will be raised by Hugo.
+
+**Note:** Not every SVG icon can be used. For better results, it should be one-color SVG file with a special class
+attribute `{{ with .class }}{{ . }} {{ end }}` and 24x24 size. At a minimum, custom SVG icon needs these attributes:
+
+```html
+<svg class="{{ with .class }}{{ . }} {{ end }} icon" width="24" height="24">...</svg>
+```
 
 ## Contributing
 
