@@ -1328,3 +1328,9 @@ textarea {
 		font-size: .6875rem;
 	}
 }
+
+summary {
+	font-weight: 700;
+	color: #e22d30;
+	cursor: pointer;
+}
