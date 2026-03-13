@@ -109,7 +109,7 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
   list = "left"  # Configure layout for list pages
   single = false # Configure layout for single pages
   # Enable widgets in given order
-  widgets = ["search", "recent", "categories", "taglist", "social", "languages"]
+  widgets = ["search", "recent", "categories", "taglist", "social", "subscribe", "languages"]
   # alternatively "ddg-search" can be used, to search via DuckDuckGo
   # widgets = ["ddg-search", "recent", "categories", "taglist", "social", "languages"]
 
@@ -129,6 +129,11 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
   gitlab = "username"
   bitbucket = "username"
   email = "example@example.com"
+
+[Params.widgets.subscribe]
+  title = "Subscribe"
+  accountId = "your-mailerlite-account-id"
+  formId = "your-mailerlite-form-id"
 
 # Custom social links
 [[Params.widgets.social.custom]]
@@ -289,6 +294,21 @@ attribute `{{ with .class }}{{ . }} {{ end }}` and 24x24 size. At a minimum, cus
 ```html
 <svg class="{{ with .class }}{{ . }} {{ end }} icon" width="24" height="24">...</svg>
 ```
+
+### Subscribe Widget
+
+**Mainroad** includes a widget for a newsletter subscription form. To enable it, add `"subscribe"` to the `widgets` array in your `config.toml`.
+
+The widget is configured in the `[Params.widgets.subscribe]` section of your `config.toml`:
+
+```toml
+[Params.widgets.subscribe]
+  title = "Subscribe"
+  accountId = "your-mailerlite-account-id"
+  formId = "your-mailerlite-form-id"
+```
+
+The `accountId` and `formId` are your MailerLite account and form IDs. The script is added to the head of the page and the form is embedded in the widget.
 
 ## Contributing
 
