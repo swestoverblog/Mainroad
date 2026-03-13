@@ -56,9 +56,7 @@ For more information read the official [setup guide](https://gohugo.io/themes/in
 baseurl = "/"
 title = "Mainroad"
 languageCode = "en-us"
-paginate = "10" # Number of posts per page
 theme = "mainroad"
-disqusShortname = "" # Enable Disqus comments by entering your Disqus shortname
 googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 
 [Author] # Used in authorbox
@@ -141,6 +139,14 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 [[Params.widgets.social.custom]]
   title = "My Home Page"
   url = "https://example.com"
+
+# Number of posts per page
+[pagination]
+  pagerSize = 10
+
+[services]
+  [services.disqus]
+    shortname = "" # Enable comments by entering your Disqus shortname
 ```
 
 A good idea is not to copy all these settings without understanding how it works. Use only those parameters that you
