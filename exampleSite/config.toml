@@ -2,7 +2,6 @@ baseurl = "/"
 title = "Mainroad"
 languageCode = "en-us"
 theme = "mainroad"
-googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 
 [Author]
   name = "John Doe"
@@ -39,3 +38,5 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 [services]
   [services.disqus]
     shortname = "" # Enable comments by entering your Disqus shortname
+  [services.googleAnalytics]
+    ID = "" # Enable Google Analytics by entering your tracking id
